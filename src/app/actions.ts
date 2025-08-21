@@ -35,11 +35,10 @@ export async function searchBrandName(
 
   try {
     const { data, error } = await supabase
-      .from('pdki_new_3')
+      .from('pdki')
       .select('logo_url, name, link, status, class, description, owner')
       .ilike('name', `%${brandName}%`)
       .limit(5);
-    console.log("OKE KRISSS", data, brandName);
 
     if (error) {
       throw error;
